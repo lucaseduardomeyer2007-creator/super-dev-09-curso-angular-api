@@ -1,0 +1,19 @@
+<h1>Cadastrar Projeto</h1>
+
+<label for="descricao">Descrição</label>
+<input type="text" [(ngModel)]="projeto().descricao" 
+    id="descricao" placeholder="Digite a descrição da projeto">
+
+<label for="prioridade">Prioridade</label>
+<input type="number" [(ngModel)]="projeto().prioridade" 
+    id="prioridade" placeholder="Digite a prioridade da projeto">
+
+<label for="horas-estimadas">Horas estimadas em minutos</label>
+<input type="number" [(ngModel)]="projeto().horasEstimadas" 
+    id="horas-estimadas" placeholder="Digite a quantidade de minutos estimados">
+
+@if(projeto().horasEstimadas !== null){
+    <span>Tempo estimado: {{projeto().horasEstimadas}} minuto(s)</span>
+}
+
+<button (click)="salvar()">Salvar</button>
