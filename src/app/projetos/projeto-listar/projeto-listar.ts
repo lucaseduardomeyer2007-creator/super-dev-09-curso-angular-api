@@ -21,7 +21,7 @@ export class ProjetoListar {
   readonly totalMinutos = computed(() => {
     let total = 0;
     this.projetos().forEach(projeto => {
-      total += projeto.horasEstimadas ?? 0;
+      total += projeto.custoEstimado ?? 0;
     });
     return total;
   })
@@ -32,7 +32,7 @@ export class ProjetoListar {
     this.projetoService.listar().subscribe({
       // Next é o caso de sucesso
       next: projetos => {
-        const projetosOrdenadas = projetos.sort((x, y) => x.descricao.localeCompare(y.descricao));
+        const projetosOrdenadas = projetos.sort((x, y) => x.nome.localeCompare(y.nome));
         this.projetos.set(projetosOrdenadas);
       },
       // error é o caso de falha
@@ -46,8 +46,15 @@ export class ProjetoListar {
   }
 
   apagar(id: string): void {
-    this.projetos.update(projetos => projetos.filter(x => x.id !== id))
-    const projetosString = JSON.stringify(this.projetos());
-    localStorage.setItem("projetos", projetosString);
+    this.projetoService.apagar(id).subscribe({
+      next: () => {
+        alert("Tarefa Apagada com sucesso");
+        this.carregarProjetos();
+      },
+      error: erro => {
+        console.error("Erro ao tentar apagar a tarefa:", erro);
+        alert("Não foi possível apagar sua tarefa");
+      }
+    })
   }
 }

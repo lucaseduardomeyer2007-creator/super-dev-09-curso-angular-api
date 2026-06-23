@@ -15,9 +15,9 @@ private readonly projetoService = inject(ProjetoService)
 private readonly router = inject(Router);
   projeto = signal<ProjetoModel>({
     id: crypto.randomUUID(),
-    descricao: "",
-    prioridade: null,
-    horasEstimadas: null
+    nome: "",
+    codigoProjeto: "",
+    custoEstimado: null
   })
 
   salvar(): void {

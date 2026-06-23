@@ -20,9 +20,9 @@
         @for(projeto of projetos(); track projeto.id){
 
             <tr>
-                <td>{{projeto.descricao}}</td>
-                <td>{{projeto.prioridade}}</td>
-                <td>{{projeto.horasEstimadas}} min</td>
+                <td>{{projeto.nome}}</td>
+                <td>{{projeto.codigoProjeto}}</td>
+                <td>{{projeto.custoEstimado}} min</td>
                 <td>
                     <a class="editar" routerLink="/projetos/editar/{{projeto.id}}">Editar</a>
                     <button class="apagar" (click)="apagar(projeto.id)">Apagar</button>

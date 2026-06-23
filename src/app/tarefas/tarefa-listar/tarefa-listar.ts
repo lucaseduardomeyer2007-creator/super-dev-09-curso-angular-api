@@ -36,7 +36,7 @@ export class TarefaListar {
         this.tarefas.set(tarefasOrdenadas);
       },
       // error é o caso de falha
-      error: erro => { 
+      error: erro => {
         console.error("Erro ao carregar as tarefas:", erro);
         alert("Não foi possível carregar as tarefas");
       }
@@ -46,8 +46,15 @@ export class TarefaListar {
   }
 
   apagar(id: string): void {
-    this.tarefas.update(tarefas => tarefas.filter(x => x.id !== id))
-    const tarefasString = JSON.stringify(this.tarefas());
-    localStorage.setItem("tarefas", tarefasString);
+    this.tarefaService.apagar(id).subscribe({
+      next: () => {
+        alert("Tarefa Apagada com sucesso");
+        this.carregarTarefas();
+      },
+      error: erro => {
+        console.error("Erro ao tentar apagar a tarefa:", erro);
+        alert("Não foi possível apagar sua tarefa");
+      }
+    })
   }
 }
