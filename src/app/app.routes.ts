@@ -17,7 +17,7 @@ export const routes: Routes = [
     { path: "projetos", loadComponent: () => ProjetoListar },
     { path: "projetos/cadastrar", loadComponent: () => ProjetoCadastrar },
     { path: "projetos/editar/:id", loadComponent: () => ProjetoEditar },
-    { path: "relatorios", loadComponent: () => RelatorioFinanceiroListar },
+    { path: "relatorios-financeiros", loadComponent: () => RelatorioFinanceiroListar },
     { path: "relatorios-financeiros/cadastrar", loadComponent: () => RelatorioFinanceiroCadastrar},
-    { path: "projetos/editar/:id", loadComponent: () => RelatorioFinanceiroEditar }
+    { path: "relatorios-financeiros/editar/:id", loadComponent: () => RelatorioFinanceiroEditar }
 ];
