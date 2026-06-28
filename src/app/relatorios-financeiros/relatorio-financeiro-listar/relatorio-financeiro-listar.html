@@ -13,19 +13,18 @@
     <tbody>
         @for(relatorio of relatorios(); track relatorio.id) {
 
-            <tr>
-                <td>{{relatorio.titulo}}</td>
-                <td>{{relatorio.tipo}}</td>
-                <td>{{relatorio.valorTotal}}</td>
-                <td>{{relatorio.dataEmissao}}</td>
-                <td>{{relatorio.responsavel}}</td>
-                <td>
-                    <a class="editar" routerLink="/relatorios-financeiros/editar/{{relatorio.id}}">Editar</a>
-                    <button class="apagar">Apagar</button>
-                </td>
+        <tr>
+            <td>{{relatorio.titulo}}</td>
+            <td>{{relatorio.tipo}}</td>
+            <td>{{relatorio.valorTotal}}</td>
+            <td>{{relatorio.dataEmissao}}</td>
+            <td>{{relatorio.responsavel}}</td>
+            <td>
+                <a class="editar" routerLink="/relatorios-financeiros/editar/{{relatorio.id}}">Editar</a>
+                <button class="apagar" (click)="apagar(relatorio.id)">Apagar</button>
+            </td>
 
-
-            </tr>
+        </tr>
         }
     </tbody>
 </table>

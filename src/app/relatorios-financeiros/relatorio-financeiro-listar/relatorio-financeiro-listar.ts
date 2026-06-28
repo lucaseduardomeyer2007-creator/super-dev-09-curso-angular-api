@@ -33,7 +33,23 @@ export class RelatorioFinanceiroListar {
     })
   }
 
+  apagar(id: string): void {
+    this.relatorioFinanceiroService.apagar(id).subscribe({
+      next: () => {
+        alert("Relatório apagado com sucesso")
+        this.carregarRelatorios
+      },
 
+      error: erro => {
+        console.error("Erro ao tentar apagar a tarefa:", erro);
+        alert("Não foi possível apagar seu relatório");
+
+      }
+
+    })
+
+
+  }
 
 
 

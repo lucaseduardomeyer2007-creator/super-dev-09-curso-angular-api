@@ -1,1 +1,15 @@
-<p>relatorio-financeiro-editar works!</p>
+<h1>Editar Relatório</h1>
+
+<label for="titulo">título</label>
+<input type="text" [(ngModel)]="relatorio().titulo" 
+    id="titulo" placeholder="Digite o título da relatorio">
+
+<label for="tipo">tipo</label>
+<input type="text" [(ngModel)]="relatorio().tipo" 
+    id="tipo" placeholder="Digite o tipo da relatorio">
+
+<label for="valorTotal">Valor Total</label>
+<input type="number" [(ngModel)]="relatorio().valorTotal" 
+    id="valorTotal" placeholder="Digite o valor total do relatório">
+
+    <button (click)="salvar()">Salvar</button>
